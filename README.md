@@ -1,14 +1,15 @@
 # 汉语拼音注音小助手 (Pinyin Annotator)
 
-> 一键给中文文章加上汉语拼音（pīn yīn）或注音（ㄅㄆㄇ），生成适合**幼儿园至小学低年级儿童**与**海外汉语学习用户**的注音读物。
+> 一键给中文文章加上汉语拼音（pīn yīn）或注音（ㄅㄆㄇ），生成适合**幼儿园至小学低年级儿童**与**海外汉语学习用户**的注音读物。>   
 > 纯前端 · 单文件 · 离线可用 · 文章内容永不上传
 >
-> 开源仓库：https://github.com/tjsky/pinyin-annotator · 作者博客：[秋风于渭水](https://www.tjsky.net)
+> 开源仓库：<https://github.com/tjsky/pinyin-annotator> · 作者博客：[秋风于渭水](https://www.tjsky.net)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Engine](https://img.shields.io/badge/%E6%8B%BC%E9%9F%B3%E5%BC%95%E6%93%8E-pinyin--pro-orange)](https://github.com/zh-lx/pinyin-pro)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-**在线使用：**[拼音注音小助手(Github Page)](https://tjsky.github.io/pinyin-annotator/) |[拼音注音小助手(Cloudflare Page)](https://pinyin-annotator.tjsky.net/) 
+![Engine](https://img.shields.io/badge/%E6%8B%BC%E9%9F%B3%E5%BC%95%E6%93%8E-pinyin--pro-orange)
+
+**在线使用：**[拼音注音小助手(Github Page)](https://tjsky.github.io/pinyin-annotator/) |[拼音注音小助手(Cloudflare Page)](https://pinyin-annotator.tjsky.net/)
 
 ---
 
@@ -29,7 +30,6 @@
 - 生成拼音
 
   ![](https://img.tjsky.net/2026/09/4bcbd5e35d68f6e4f6f0b03056e6fba6.webp)
-
 - 生成注音
 
   ![](https://img.tjsky.net/2026/09/67a338385a65ab3b3e32f62f78ff993f.webp)
@@ -37,6 +37,7 @@
 ## 功能特性
 
 ### 注音引擎
+
 - **教材式上下注音排版，轻声自动不标调**（妈妈 mā ma）。
 - **「一 / 不」变调开关**：标实际读音（一个 yí gè）或标原调（yī gè），对齐教材习惯。
 - **儿化音双模式**：**逐字注音**（花儿 huā er，适合指读认字）/ **标准拼音**（花儿 huār，符合汉语拼音方案），女儿、儿童等真音节词自动豁免。
@@ -49,6 +50,7 @@
 - **拼音引擎内嵌离线可用**，同时支持联网同步上游更新（jsDelivr / npmmirror 双源）
 
 ### 排版与输出
+
 - 汉字 16–48px 字号、楷体 / 宋体 / 黑体、霞鹜文楷 GB / 霞鹜文楷 TC / 芫荽 Iansui（网络字体，按需加载自动缓存），拼音字体独立设置，也可使用你电脑内的本地字体。
 - **简⇄繁转换引擎**：OpenCC 驱动，「更多设置 → 繁简转换」可选 **简体 ⇆ 标准繁体 / 台湾繁体 / 香港繁体**；勾选「同时转换常用词汇」后连地区用词一并转换（鼠标→滑鼠、软件→軟體、打印→列印），一字多繁（头发→頭髮、发财→發財）始终自动区分。
 - **内嵌拼音 / 注音专用字体**：楷体、宋体等常见中文字体里的拼音是普通拉丁字母写法（双层 a），不是教材拼音。工具内嵌 Andika 拼音字体（默认，显示教材单层 ɑ / 单层 g）与 ㄅㄆㄇ 注音字体 BpmfSubset（注音模式自动选用，也可在「音标字体」手动指定），**无需额外安装任何字体**；均以 SIL OFL 1.1 协议开源，**可免费商用**。
@@ -62,62 +64,96 @@
 - **打印 / 导出 PDF**：A4 教材排版输出全部页面，页脚水印可勾选去除。长文模式下改为弹出打印对话框：可按**页码范围**打印，或**分批打印全书**（每批 100 页，上一批保存后自动弹出下一批），再用对话框里的「合并 PDF 文件」把各批按文件名顺序合成一个 PDF（pdf-lib 纯前端合并，全程本地不上传；合并组件首次使用需联网加载）。
 - **五种复制格式**：富文本（粘贴进 Word 保留注音排版）、HTML ruby 标签、HTML+CSS 注音（网页源码，引用随站点部署的 `zhuyin.css`，横排 / 直排都与预览一致，可选配 font.emtech.cc 网络字体如芫荽 Iansui / 霞鹜文楷 TC）、字「音标」逐字对照、只复制音标（保留原文标点与分段，适合出练习题）；音标随当前模式——拼音模式复制拼音，注音模式复制注音（ㄅㄆㄇ）。Word 对注音声调定位支持有限（富文本精确标注需逐一适配多种注音字型，超出几 MB 在线工具的能力），富文本中注音为横排、声调符号缀在符号末尾
 - **注音芫荽 IVS 模式**：「HTML+CSS 注音」直排 + 网页字体选「注音芫荽 BpmfIansui」时，每个字的正确读音以 IVS 异体字选择符（U+E01E0+序号，规格见 ButTaiwan/bpmfvs）写入文字，由字型自行标注右侧注音；多音字读音随本工具的台湾读音数据选取，读音表（18,626 字，构建期从 bpmfvs 读音表 `phonic_table_Z.txt` 生成，仅注入注音版）未收的字自动切回常规字形并用结构标注，不会显示字型默认的错误读音。横排时该字体仅用于注音符号（其汉字字形自带注音，整段套用会重复标注）；装有注音芫荽字型的 Word 等软件可直接使用带 IVS 的文字
-- **阅读模式：**隐藏编辑区，设备直接递给小朋友，方向键翻页。
+- **阅读模式：**&#x9690;藏编辑区，设备直接递给小朋友，方向键翻页。
 
 ### 导入
+
 - TXT 文件导入，自动识别 UTF-8 / GBK 编码
 
 ## 快速开始
 
-- **在线使用：**[拼音注音小助手(海外用户推荐访问)](https://tjsky.github.io/pinyin-annotator/) |[拼音注音小助手(国内用户推荐访问)](https://pinyin-annotator.tjsky.net/) 
+- **在线使用：**[拼音注音小助手(海外用户推荐访问)](https://tjsky.github.io/pinyin-annotator/) |[拼音注音小助手(国内用户推荐访问)](https://pinyin-annotator.tjsky.net/)
 
   首次访问会展示四个版本的对比卡片，选一个进入即可；选过之后浏览器会记住，下次自动进入上次用的版本（也可在页面换版本）；
-
 - **本地使用**：
-  1. 到 [**Releases**](https://github.com/tjsky/pinyin-annotator/releases) 下载最新版 `pinyin-annotator-vX.Y.Z.zip`（内含 `index.html` 入口页与四个版本成品）；
+  1. 前往 [Releases](https://github.com/tjsky/pinyin-annotator/releases) 下载最新版（Assets 里的 `pinyin-annotator-vX.Y.Z.zip`）；
   2. 解压后双击 `index.html`（版本选择页）——完成，不需要安装任何东西；首次访问会展示四个版本的对比卡片，选一个进入即可，浏览器会记住选择、下次自动进入（也可在页面换版本；本地打开旧入口 `main.html` 会提示改用 `pinyin.html`）；
   3. 粘贴文章 → 调整字号间距 → 打印 / 导出 PDF，或复制进 Word。
 
-| 版本 | 文件 | 体积 | 分词 |
-|---|---|---|---|
-| **版本选择页** | `index.html` | 约 20 KB | SEO 落地（简/繁/EN 三语）/ 四版本对比 / 记忆跳转 / Plus 下载进度条 |
-| **主线版**（推荐） | `pinyin.html` | 约 1.4 MB | ✅ 智能分词 / 逆向匹配 / 逐字注音，可手动断词合词（在线演示默认版本） |
-| **完整词典版** | `plus.html` | 约 7 MB | ✅ 同上，词典扩充到 33.7 万词，成语 / 长尾词分词更准；内建 OpenCC 简 ↔ 繁转换 |
-| **注音版** | `zhuyin.html` | 约 2.3 MB | ✅ 预设繁體介面 + 注音符號（ㄅㄆㄇ，橫排 / 直排）+ 臺灣讀音 + OpenCC 簡↔繁轉換 + 注音 IVS 讀音表，面向港澳台用户 |
-| **轻量版** | `mini.html` | 约 0.9 MB | ❌ 固定逐字注音（不内置词典，适合只需要注音排版的场景） |
+| 版本          | 文件            | 体积       | 分词                                                                     |
+| ----------- | ------------- | -------- | ---------------------------------------------------------------------- |
+| **版本选择页**   | `index.html`  | 约 20 KB  | SEO 落地（简/繁/EN 三语）/ 四版本对比 / 记忆跳转 / Plus 下载进度条                           |
+| **主线版**（推荐） | `pinyin.html` | 约 1.4 MB | ✅ 智能分词 / 逆向匹配 / 逐字注音，可手动断词合词（在线演示默认版本）                                 |
+| **完整词典版**   | `plus.html`   | 约 7 MB   | ✅ 同上，词典扩充到 33.7 万词，成语 / 长尾词分词更准；内建 OpenCC 简 ↔ 繁转换                      |
+| **注音版**     | `zhuyin.html` | 约 2.3 MB | ✅ 预设繁體介面 + 注音符號（ㄅㄆㄇ，橫排 / 直排）+ 臺灣讀音 + OpenCC 簡↔繁轉換 + 注音 IVS 讀音表，面向港澳台用户 |
+| **轻量版**     | `mini.html`   | 约 0.9 MB | ❌ 固定逐字注音（不内置词典，适合只需要注音排版的场景）                                           |
 
-全部版本均支持 **简体 / 繁體 / English 界面**、**拼音 / 注音（ㄅㄆㄇ）双模式**，以及 **「一 / 不」变调开关**。拼音模式提供「拼音位置」切换（**上方**默认 / **右侧**旁落）；注音模式提供「注音方向」切换：**横排**（符号横写标在字上方，调号标在末符上方）与**直排**（台湾直式教科书风格，符号自上而下竖排、标注在汉字右侧，调号标在末符右方）；切换后 A4 预览自动重新分页，打印 / 导出 PDF 所见即所印。
-「更多设置 → 读音标准」可切换 **普通话读音 / 台湾读音**（拼音与注音模式都生效）：普通话读音以《现代汉语词典》为准（数据来源 [zh-lx/pinyin-pro](https://github.com/zh-lx/pinyin-pro)）；台湾读音以《重編國語辭典修訂本》为准（数据来源 [g0v 萌典](https://github.com/g0v/moedict-data)），覆盖约 1.5 万词、200 字（简繁字形均可命中，如垃圾 ㄌㄜˋㄙㄜˋ、期待 ㄑ丨ˊ、攜帶 ㄒ丨、血液 ㄒ丨ㄝˇ、混淆 ㄏㄨㄣˋ丨ㄠˊ），词典文本授权为 CC BY-ND 3.0 臺灣（许可协议要求保留的原始署名：教育部）。
+全部版本均支持 **简体 / 繁體 / English 界面**、**拼音 / 注音（ㄅㄆㄇ）双模式**，以及 **「一 / 不」变调开关**。拼音模式提供「拼音位置」切换（**上方**默认 / **右侧**旁落）；注音模式提供「注音方向」切换：**横排**（符号横写标在字上方，调号标在末符上方）与**直排**（台湾直式教科书风格，符号自上而下竖排、标注在汉字右侧，调号标在末符右方）；切换后 A4 预览自动重新分页，打印 / 导出 PDF 所见即所印。  
+「更多设置 → 读音标准」可切换 **普通话读音 / 台湾读音**（拼音与注音模式都生效）：普通话读音以《现代汉语词典》为准（数据来源 [zh-lx/pinyin-pro](https://github.com/zh-lx/pinyin-pro)）；台湾读音以《重編國語辭典修訂本》为准（数据来源 [g0v 萌典](https://github.com/g0v/moedict-data)），覆盖约 1.5 万词、200 字（简繁字形均可命中，如垃圾 ㄌㄜˋㄙㄜˋ、期待 ㄑ丨ˊ、攜帶 ㄒ丨、血液 ㄒ丨ㄝˇ、混淆 ㄏㄨㄣˋ丨ㄠˊ），词典文本授权为 CC BY-ND 3.0 臺灣（许可协议要求保留的原始署名：教育部）。  
 `zhuyin.html` 与 `plus.html` 内嵌 [OpenCC（nk2028/opencc-js）](https://github.com/nk2028/opencc-js)（Apache-2.0），输入区提供「转为简体 / 转为繁体」一键转换；「更多设置 → 繁简转换」可选 **简体 ⇆ 标准繁体 / 台湾繁体 / 香港繁体**，配合「同时转换常用词汇」勾选（台湾 / 香港繁体时可用）连地区用词一并转换；`zhuyin.html` 首次打开即为繁体界面、注音符号与台湾读音（可随时切换）。
 
 > 推荐使用 Chrome / Edge 等现代浏览器。全部功能在本地运行、文章永不上传；联网仅用于可选的拼音引擎更新检查与网络字体加载（不选网络字体即完全离线）。
 >
-> 部署到静态托管（GitHub Pages / Cloudflare Pages / Vercel）时，把 `index.html` 与四个版本文件一起放到根目录即可，入口即版本选择页；帖子里分享指定版本可用 `https://你的域名/?v=plus` 这样的参数直接访问对应版本（`?v=pinyin` / `?v=zhuyin` / `?v=mini` 同理，旧链接 `?v=main` 自动兼容跳转主线版）。
+> 自行部署到静态托管（GitHub Pages / Cloudflare Pages / Vercel 等）时，使用 **`dist` 分支**的内容（或 Releases zip 解压）放到根目录即可，入口即版本选择页；帖子里分享指定版本可用 `https://你的域名/?v=plus` 这样的参数直接访问对应版本（`?v=pinyin` / `?v=zhuyin` / `?v=mini` 同理，旧链接 `?v=main` 自动兼容跳转主线版）。详见下方「部署在线版」。
 
 ## 部署在线版（GitHub Pages / Cloudflare Pages / Vercel）
 
-**方式一：Fork 本仓库，让 CI 替你构建（推荐）**
+本仓库采用**源码与成品分离**的架构：
 
-1. Fork 本仓库；Actions 默认会在每次 push main 后自动执行 `node build.js`，把四个成品 + 入口页构建到 **`dist` 分支**；
-2. GitHub Pages：仓库 **Settings → Pages → Build and deployment**，Source 选 **Deploy from a branch**，Branch 选 **`dist`**，目录 **/ (root)**，Save；Cloudflare Pages / Vercel：把项目的**生产分支设为 `dist`**（无需任何构建命令）；
-3. 等 1–2 分钟即可访问；以后更新只需同步 main，产物由 CI 自动产出，**不要手工编辑 `dist` 分支**。
+| 分支 / 位置 | 内容 | 用途 |
+| --- | --- | --- |
+| `main` | 源码：`template.html` + `build.js` + 构建依赖（fonts / vendor / seg-dict） | 开发与 PR，**不含成品** |
+| `dist` | CI 自动构建的成品：`index.html` + `main.html` + `zhuyin.css` + 四个版本页 + `.nojekyll` | **三平台线上托管的生产分支**，由 CI 全量覆盖，永不手工编辑 |
+| Releases | 每个版本 tag 的成品 zip | 本地使用下载 |
 
-**方式二：不碰 Git，纯静态托管**
+每次 push 到 `main`，CI（[`.github/workflows/build.yml`](.github/workflows/build.yml)）会自动执行 `node build.js` 并把成品发布到 `dist` 分支；推送 `v*` 标签时会额外打包 zip 发布到 Releases。**成品只出自 CI 一处，杜绝源码与成品漂移。**
 
-从 [**Releases**](https://github.com/tjsky/pinyin-annotator/releases) 下载 zip，把里面的 `index.html`、`mini.html`、`pinyin.html`、`plus.html`、`zhuyin.html`、`zhuyin.css`（「HTML+CSS 注音」复制格式引用的样式表，缺了粘贴目标网页拉不到样式）与 `main.html`（旧入口跳转页）一起上传到任何静态空间（VPS、对象存储、Cloudflare Pages 直传），单文件零后端。
+### Fork 后自建部署（三平台任选）
 
-> 帖子里分享指定版本可用 `https://你的域名/?v=plus` 这样的参数直接访问对应版本（`?v=pinyin` / `?v=zhuyin` / `?v=mini` 同理，旧链接 `?v=main` 自动兼容跳转主线版）。
+1. **Fork 本仓库**，确认 Fork 的 **Actions 已启用**（Fork 仓库页 Actions 标签页 → 如提示已禁用则点启用）；Fork 默认只有 main 分支——手动触发一次工作流即可生成 dist：Actions → Build & Deploy → Run workflow，或随便 push 一个提交；
+2. 按所用平台选择：
+   - **GitHub Pages**：Settings → Pages → Build and deployment → Source 选 **Deploy from a branch** → Branch 选 **`dist`**，目录 **/ (root)** → Save；
+   - **Cloudflare Pages**：连接 Fork 仓库，**Production branch 填 `dist`**，Build command 留空、输出目录填 `/`；
+   - **Vercel**：导入仓库后，Settings → Git → **Production Branch 改为 `dist`**（无需构建命令）；
+3. 等 1–2 分钟构建完成，用分配的域名或自定义域名访问即可。
 
-## 仓库结构与构建
+> 往后更新只需同步上游 `main`（Fork 页面 Sync fork），CI 会自动重建 `dist`，三平台自动跟随发布，全程无需手工下载或上传任何文件。任一线上页面执行 `curl -s <页面地址> | grep -o "build:v[0-9.]*"` 可核对部署的构建版本号。
 
-| 位置 | 内容 | 说明 |
-|---|---|---|
-| `main` 分支 | `template.html`（唯一源码模板）+ `build.js` + `fonts/ vendor/ seg-dict/`（构建依赖）+ `index.html` `main.html` `zhuyin.css`（手工维护的静态文件） | **源码真相源，不含成品** |
-| `dist` 分支 | CI 每次构建产出的成品（四个版本 + 入口页 + `.nojekyll`） | **机器托管，每次全量覆盖，禁止手工编辑** |
-| Releases | 按 tag（`v*`）打包的 zip（成品 + 入口页 + README） | 版本化下载入口 |
+## 本地构建
 
-**构建与贡献流程**：仓库内 `node build.js` 即可从 `template.html` 生成四个成品（纯 Node 标准库，零 npm 依赖，Node ≥ 18）。贡献时**只改 `template.html`**（及必要的构建依赖），提交 PR 即可——CI 会自动构建并在合并后把产物发布到 `dist` 分支，**无需手改任何几 MB 的成品文件**。
-（自托管构建时注意：不同平台 Node 的 zlib 压缩字节可能有差异，解压后的词典数据完全一致，不影响功能。）
+环境要求：**Node.js ≥ 18**（推荐 22，与 CI 锁定的版本一致），零 npm 依赖，克隆后直接构建：
+
+```bash
+git clone https://github.com/tjsky/pinyin-annotator.git
+cd pinyin-annotator
+node build.js
+```
+
+构建会在仓库根目录生成 `mini.html` / `pinyin.html` / `plus.html` / `zhuyin.html` 四个单文件成品（`index.html`、`main.html`、`zhuyin.css` 为手工维护的源文件，不参与构建）。
+
+- **构建版本号**：`build.js` 内 `BUILD_VERSION` 常量随发版递增，注入为每个产物 head 内的隐藏注释 `<!--build:x.y.z-->`，用于线上部署核对；
+- **可复现性**：相同 Node 版本下产物逐字节一致；不同操作系统/Node 版本仅 zlib 压缩字节不同（词典数据解码后完全一致，功能无差异）；CI 锁定 Node 22.22.2 保证 dist 稳定；
+- **词典再生成**：`seg-dict/` 内附 `build-complete.js`、`build-tw-diff.js`、`gen-bpmf-ivs.py`，仅在需要更新上游词典 / 萌典差异 / 注音读音表数据时使用，日常构建无需运行。
+
+## 参与贡献
+
+欢迎 Issue 与 PR！提交前请先看 [已知问题](#已知问题) 与 [开发计划](#开发计划待修复问题)，避免重复劳动。
+
+**提交流程（重要：只改源码，不要手改成品）：**
+
+1. Fork 仓库，从 `main` 拉出功能分支；
+2. **所有功能改动都在 `template.html`（唯一源文件）里做**；构建脚本与词典数据分别改 `build.js` 与 `seg-dict/`。main 分支没有四个发布页——它们由 CI 构建，**请不要在 PR 里出现任何成品文件的改动**；
+3. 本地 `node build.js` 自测通过后提交，发起 PR；
+4. CI 会自动构建，产物挂在 workflow run 的 **Artifacts** 上，可直接下载验证效果；
+5. 审查合并后，`dist` 分支与线上页面自动更新，无需任何手工发布步骤。
+
+### 贡献者
+
+<a href="https://github.com/tjsky/pinyin-annotator/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tjsky/pinyin-annotator" alt="贡献者头像列表" />
+</a>
+
+> 头像列表由 [contrib.rocks](https://contrib.rocks) 自动生成，合并 PR 后自动更新。
 
 ## 隐私与安全说明
 
@@ -129,6 +165,7 @@
 ## 准确性说明
 
 拼音引擎准确率约 99.8%，但**不承诺 100% 正确**——多音字、轻声、儿化音在特定语境（尤其是人名、专名）下仍可能误判。各版本内嵌词典不同、多音字处理能力也不同（完整词典版最高，预览框底部有相应提示）。工具因此提供：
+
 - 易错点高亮，方便快速检查（教学场景建议开启后逐字过一遍）；
 - 单字手动改读音、单字儿化修正。
 
@@ -173,55 +210,36 @@
 - **免责声明**：本项目 README 及仓库中的演示截图展示该字体的效果，仅为说明工具的拼音显示能力，截图中的字体为「印氪先生汉语拼音 优化版W4」商用字体，**本开源项目不提供该字体文件**；如需商用请自行联系购买授权。
 - 提醒：您电脑 / 手机里的黑体、宋体、雅黑等同样是有版权的字体。网页调用本地已安装字体是允许的，但把他们打印为成品分发使用时，请留意所用字体的授权范围。
 
-
-
 ## 开发计划&待修复问题
 
 ### TODO
 
 - [x] 拆分版本：mini / pinyin（原 main）/ plus / zhuyin 四版 + 入口页
-
 - [x] 简体/繁体/英文界面切换（i18n 内核 + 三语包）
-
 - [x] 拼音/注音双模式（音节级映射转换；注音支持横排 / 直排，拼音支持上方 / 右侧）
-
 - [x] 台湾读音差异表（萌典数据构建期 diff，拼音与注音模式均生效）
-
 - [x] 简繁转换（OpenCC，注音版 / 完整词典版内置；支持标准 / 台湾 / 香港繁体与常用词汇转换）
-
 - [x] 五种复制格式（含 HTML+CSS 注音、注音芫荽 IVS 模式）
-
 - [x] 网络字体（霞鹜文楷 GB / TC、芫荽 Iansui，按需加载自动缓存）
-
 - [x] 长文模式：超过 3 万字自动分块排版（上限 200 万字），支持整本书籍；打印支持页码范围 / 分批全书 + PDF 合并
-
 - [ ] 更多的注音与拼音方案：如華語羅馬拼音 (THL)、通用拼音、注音二式、威妥瑪拼音。
-
 - [ ] 粤语拼音（粤拼）支持：粤音标音标准较混乱，不保证效果，目前暂未找到权威标准文件（如政府标准、学校教材）与可用开源库，欢迎提供参考资料。
 
 ## 已知问题
 
 - [ ] 分词字典导致错误读音：有时候先分词再标读音反而会导致错误的读音。说人话就是：个别字的读音，可能mini版比plus版更准（但绝大部分时候plus版对多音字的判断更准），涉及拼音引擎本身能力的问题。
-
 - [x] 预览与打印BUG：文章本身如果没有换行，只有超级长的一行时，翻页模式下，PDF和预览从第二页开始，排版会出错。
-
 - [x] 繁简转换时常用词汇未正确转换：如鼠标→滑鼠、软件→軟體、打印→列印
-
-
 
 ## Star History
 
-<a href="https://github.com/tjsky/pinyin-annotator/tree/star-history">
-  <img alt="Star History Chart"
+<a href="https://github.com/tjsky/pinyin-annotator/tree/star-history">  
+  <img alt="Star History Chart"  
        src="https://raw.githubusercontent.com/tjsky/pinyin-annotator/star-history/star-history.svg" />
-</a>
 
+
+</a>
 
 ## License
 
 [MIT](LICENSE)
-
-
-
-
-
