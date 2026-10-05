@@ -25,4 +25,4 @@ jobs:
         with:
           auto_detect_branch_protection: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CONTRIBUTOR_TOKEN }}
