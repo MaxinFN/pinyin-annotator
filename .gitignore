@@ -4,3 +4,9 @@ seg-dict/_decoded.json
 .prcheck/
 .tmp-*
 *.log
+
+# 本地构建产物（成品只存在于 dist 分支，由 CI 构建）
+/mini.html
+/pinyin.html
+/plus.html
+/zhuyin.html
