@@ -74,7 +74,7 @@
   首次访问会展示四个版本的对比卡片，选一个进入即可；选过之后浏览器会记住，下次自动进入上次用的版本（也可在页面换版本）；
 
 - **本地使用**：
-  1. 下载仓库（Code → Download ZIP，或 `git clone`）；
+  1. 到 [**Releases**](https://github.com/tjsky/pinyin-annotator/releases) 下载最新版 `pinyin-annotator-vX.Y.Z.zip`（内含 `index.html` 入口页与四个版本成品）；
   2. 解压后双击 `index.html`（版本选择页）——完成，不需要安装任何东西；首次访问会展示四个版本的对比卡片，选一个进入即可，浏览器会记住选择、下次自动进入（也可在页面换版本；本地打开旧入口 `main.html` 会提示改用 `pinyin.html`）；
   3. 粘贴文章 → 调整字号间距 → 打印 / 导出 PDF，或复制进 Word。
 
@@ -94,17 +94,30 @@
 >
 > 部署到静态托管（GitHub Pages / Cloudflare Pages / Vercel）时，把 `index.html` 与四个版本文件一起放到根目录即可，入口即版本选择页；帖子里分享指定版本可用 `https://你的域名/?v=plus` 这样的参数直接访问对应版本（`?v=pinyin` / `?v=zhuyin` / `?v=mini` 同理，旧链接 `?v=main` 自动兼容跳转主线版）。
 
-## 部署在线版（GitHub Pages）
+## 部署在线版（GitHub Pages / Cloudflare Pages / Vercel）
 
-1. **Fork 或新建仓库**（建议命名 `pinyin-annotator`，Public 可见）；
-2. 把 `index.html`、`mini.html`、`pinyin.html`、`plus.html`、`zhuyin.html` 与 `zhuyin.css`（「HTML+CSS 注音」复制格式引用的样式表，缺了粘贴目标网页拉不到样式）一起放到仓库根目录（网页上传或 `git push` 均可）；`main.html` 为旧入口跳转页（手工维护，不参与构建）：在线打开自动跳 `pinyin.html`，本地打开提示下载新入口，建议一并上传；
-3. 打开仓库 **Settings → Pages → Build and deployment**：
-   - Source 选 **Deploy from a branch**
-   - Branch 选 **main**，目录选 **/ (root)**，点 Save；
-4. 等 1–2 分钟，访问 `https://<你的用户名>.github.io/pinyin-annotator/` 即可；
-5. 以后更新：重新上传有改动的 HTML / CSS 文件覆盖即可，无需其他配置。
+**方式一：Fork 本仓库，让 CI 替你构建（推荐）**
 
-> 也可以放到任何静态空间（VPS、对象存储、Cloudflare Pages），单文件零后端。
+1. Fork 本仓库；Actions 默认会在每次 push main 后自动执行 `node build.js`，把四个成品 + 入口页构建到 **`dist` 分支**；
+2. GitHub Pages：仓库 **Settings → Pages → Build and deployment**，Source 选 **Deploy from a branch**，Branch 选 **`dist`**，目录 **/ (root)**，Save；Cloudflare Pages / Vercel：把项目的**生产分支设为 `dist`**（无需任何构建命令）；
+3. 等 1–2 分钟即可访问；以后更新只需同步 main，产物由 CI 自动产出，**不要手工编辑 `dist` 分支**。
+
+**方式二：不碰 Git，纯静态托管**
+
+从 [**Releases**](https://github.com/tjsky/pinyin-annotator/releases) 下载 zip，把里面的 `index.html`、`mini.html`、`pinyin.html`、`plus.html`、`zhuyin.html`、`zhuyin.css`（「HTML+CSS 注音」复制格式引用的样式表，缺了粘贴目标网页拉不到样式）与 `main.html`（旧入口跳转页）一起上传到任何静态空间（VPS、对象存储、Cloudflare Pages 直传），单文件零后端。
+
+> 帖子里分享指定版本可用 `https://你的域名/?v=plus` 这样的参数直接访问对应版本（`?v=pinyin` / `?v=zhuyin` / `?v=mini` 同理，旧链接 `?v=main` 自动兼容跳转主线版）。
+
+## 仓库结构与构建
+
+| 位置 | 内容 | 说明 |
+|---|---|---|
+| `main` 分支 | `template.html`（唯一源码模板）+ `build.js` + `fonts/ vendor/ seg-dict/`（构建依赖）+ `index.html` `main.html` `zhuyin.css`（手工维护的静态文件） | **源码真相源，不含成品** |
+| `dist` 分支 | CI 每次构建产出的成品（四个版本 + 入口页 + `.nojekyll`） | **机器托管，每次全量覆盖，禁止手工编辑** |
+| Releases | 按 tag（`v*`）打包的 zip（成品 + 入口页 + README） | 版本化下载入口 |
+
+**构建与贡献流程**：仓库内 `node build.js` 即可从 `template.html` 生成四个成品（纯 Node 标准库，零 npm 依赖，Node ≥ 18）。贡献时**只改 `template.html`**（及必要的构建依赖），提交 PR 即可——CI 会自动构建并在合并后把产物发布到 `dist` 分支，**无需手改任何几 MB 的成品文件**。
+（自托管构建时注意：不同平台 Node 的 zlib 压缩字节可能有差异，解压后的词典数据完全一致，不影响功能。）
 
 ## 隐私与安全说明
 
