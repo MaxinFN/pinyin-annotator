@@ -151,7 +151,7 @@ node build.js
 ### 贡献者
 
 <a href="https://github.com/tjsky/pinyin-annotator/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=tjsky/pinyin-annotator" alt="贡献者头像列表" />
+  <img src="https://contrib.rocks/image?repo=tjsky/pinyin-annotator&v=2" alt="贡献者头像列表" />
 </a>
 
 
@@ -237,12 +237,7 @@ node build.js
 ## Star History
 
 <a href="https://github.com/tjsky/pinyin-annotator/tree/star-history">
-
-  <img alt="Star History Chart"
-
-       src="https://raw.githubusercontent.com/tjsky/pinyin-annotator/star-history/star-history.svg" />
-
-
+<img alt="Star History Chart" src="https://raw.githubusercontent.com/tjsky/pinyin-annotator/star-history/star-history.svg" />
 </a>
 
 ## License
