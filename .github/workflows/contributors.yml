@@ -22,6 +22,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Contribute List
         uses: akhilmhdh/contributors-readme-action@v2.3.10
-        with:/n          auto_detect_branch_protection: false
+        with:
+          auto_detect_branch_protection: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
