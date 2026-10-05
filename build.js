@@ -13,6 +13,9 @@
 //  - /*__TW_DIFF__*/null  台湾读音差异表 base64（萌典数据 diff 产物，含简繁双键，全版本注入）
 //  - /*__OPENCC__*/null   OpenCC full.js UMD（gzip+base64，仅 zhuyin/plus 注入）
 //  - /*__VARIANT__*/null  构建变体默认值 JSON（zhuyin: 繁体界面/注音/台湾读音/opencc）
+// 构建版本号：手工维护，发版时随 tag 递增；注入为每个产物 head 内的隐藏注释 <!--build:x.y.z>，
+// 用于部署验证——curl 任一线上页面 grep 该串即可确认平台是否在服务最新 dist（固定常量保证产物逐字节可复现）。
+const BUILD_VERSION = "v1.0.0";
 //  - <!--__SEO_META__-->  各版本 SEO meta（canonical / og 标签，按版本注入）
 const fs = require("fs");
 const path = require("path");
@@ -151,7 +154,7 @@ function build(file, segDictB64, opencc) {
   out = out.replace("/*__OPENCC__*/null", () => opencc ? JSON.stringify(openccB64) : "null");
   out = out.replace("/*__BPMF_IVS__*/null", () => file === "zhuyin.html" ? bpmfIvsData : "null");
   out = out.replace("/*__VARIANT__*/null", () => JSON.stringify(VARIANT[file] || null));
-  out = out.replace("<!--__SEO_META__-->", () => SEO[file]);
+  out = out.replace("<!--__SEO_META__-->", () => SEO[file] + "<!--build:" + BUILD_VERSION + "-->");
   if (out.indexOf("__ANDIKA_FACE__") !== -1 || out.indexOf("__PINYIN_PRO__") !== -1 || out.indexOf("__SEG_DICT__") !== -1 || out.indexOf("__SEO_META__") !== -1 || out.indexOf("__BPMF_FACE__") !== -1 || out.indexOf("__PY2ZY__") !== -1 || out.indexOf("__TW_DIFF__") !== -1 || out.indexOf("__OPENCC__") !== -1 || out.indexOf("__VARIANT__") !== -1 || out.indexOf("__BPMF_IVS__") !== -1) {
     throw new Error("存在未替换的注入占位符");
   }
