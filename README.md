@@ -150,9 +150,8 @@ node build.js
 
 ### 贡献者
 
-<a href="https://github.com/tjsky/pinyin-annotator/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=tjsky/pinyin-annotator&v=2" alt="贡献者头像列表" />
-</a>
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 
 
 ## 隐私与安全说明
