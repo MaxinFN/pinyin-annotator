@@ -380,7 +380,7 @@
   #preview .py-result-item.rd-char .py-pinyin-item { color: var(--accent-dark); font-weight: 600; }
   body.reading-mode #pages-wrap { padding-bottom: 118px; }
   body.reading-mode #preview .py-result-item { cursor: pointer; }
-  #preview .py-result-item { scroll-margin-top: 120px; scroll-margin-bottom: 110px; }
+  body.reading-mode #preview .py-result-item { scroll-margin-top: 120px; scroll-margin-bottom: 110px; }
   #rd-toast {
     position: fixed; left: 50%; bottom: 94px; transform: translateX(-50%);
     z-index: 195; max-width: min(90vw, 540px);
@@ -731,10 +731,10 @@
       <li data-i18n="help.li3">「分词方案」选「智能分词」时按内置约 3 万词词典把词组连排、整词标注（如 银行 yín háng）；机器切错时点击生字，可在弹窗里断词 / 合词手动修正；</li>
       <li data-i18n="help.li4">预览按 A4 纸宽高自动分页、所见即所印，「翻页 / 连续滚动」随时切换（手机等窄屏自动连续排版）；点「打印 / 导出 PDF」即可输出全部页面；</li>
       <li data-i18n="help.li5">点「进入阅读模式」隐藏编辑区，方便把设备直接递给小朋友，←→ 方向键也能翻页；</li>
-      <li data-i18n="help.li9">阅读模式底部新增跟读工具条：逐句高亮、自动滚动、语音朗读与麦克风跟读，并记住上次读到的位置；点阅读模式中的字可直接跳到该句。语音朗读使用浏览器内置 Web Speech API；麦克风跟读依赖浏览器语音识别服务，可能联网处理音频，介意时请勿开启。</li>
       <li data-i18n="help.li6">「复制内容及音标」支持五种格式：富文本（直接粘贴进 Word）、HTML ruby 标签、HTML+CSS 注音（网页源码，横排 / 直排都与预览一致，可配网络字体；直排配「注音芫荽」字体时读音以 IVS 写入文字）、字「音标」逐字对照、只复制音标（含标点）。Word 对注音声调定位的支持有限，富文本中注音为横排、声调符号缀在符号末尾，需要精确排版请用后两种格式粘贴进网页；</li>
       <li data-i18n="help.li7">「儿化音」支持逐字注音（花儿 huā er）与标准拼音（花儿 huār）两种方式，自动判断不准时点「儿」字手动指定；勾选「易错点高亮」会用底纹标出多音字、的地得、一 / 不变调、常见轻声字，方便快速核对；拼音引擎已内嵌、离线可用，联网时会自动同步上游更新；</li>
       <li data-i18n="help.li8">关于粤语注音：粤拼等标音方案的标准较为混乱，暂未找到权威的教学标准和可用的开源库，本工具暂时只支持汉语拼音与注音符号；欢迎香港的朋友提供权威参考资料或推荐可用方案；</li>
+      <li data-i18n="help.li9">阅读模式底部新增跟读工具条：逐句高亮、自动滚动、语音朗读与麦克风跟读，并记住上次读到的位置；点阅读模式中的字可直接跳到该句。语音朗读使用浏览器内置 Web Speech API；麦克风跟读依赖浏览器语音识别服务，可能联网处理音频，介意时请勿开启。</li>
     </ol>
     <p class="privacy" data-i18n="help.privacy">内容安全说明：全部注音转换都在您自己的浏览器里完成，文章内容不会上传到任何服务器，可以放心处理校内稿件。「一 / 不」默认按实际读音标注变调，如需与教材原调标注一致，可切换为「标原调」。「检查更新」仅联网获取拼音引擎的新版本，不会上传文章内容。</p>
     </div>
@@ -1008,6 +1008,8 @@ var I18N = {
     "rd.micListening": "請開始朗讀，我會跟隨你的聲音高亮。",
     "rd.micDenied": "麥克風權限被拒絕，請在瀏覽器允許後重試。",
     "rd.micError": "跟讀辨識出錯，請重試。",
+    "rd.micConfirm": "麥克風跟讀由瀏覽器內建的語音辨識服務處理，音訊可能會傳送到瀏覽器或系統廠商的伺服器（本工具仍然不會收到您的文章內容）。確定開啟嗎？",
+    "rd.micCancelled": "已取消開啟麥克風跟讀。",
     "help.li9": "閱讀模式底部新增跟讀工具列：逐句高亮、自動捲動、語音朗讀與麥克風跟讀，並記住上次讀到的位置；點閱讀模式中的字可直接跳到該句。語音朗讀使用瀏覽器內建 Web Speech API；麥克風跟讀依賴瀏覽器語音辨識服務，可能連網處理音訊，介意時請勿開啟。",
     "lm.excerpt": "（長文模式：全文 {n} 字已載入，點擊下方「退出長文模式」可恢復編輯）",
     "lm.max": "單次最多支援 200 萬字，已只載入前 200 萬字。",
@@ -1232,6 +1234,8 @@ var I18N = {
     "rd.micListening": "Start reading — I will follow your voice.",
     "rd.micDenied": "Microphone permission denied. Please allow it and retry.",
     "rd.micError": "Echo-read recognition failed. Please retry.",
+    "rd.micConfirm": "Echo-read is processed by the browser's built-in speech-recognition service; audio may be sent to the browser or OS vendor's servers (this tool still never receives your text). Enable the microphone?",
+    "rd.micCancelled": "Microphone echo-read cancelled.",
     "help.li9": "The reading-mode toolbar adds sentence highlighting, auto-scroll, text-to-speech and microphone echo-read, and remembers where you stopped; tap a character to jump to that sentence. Speech uses the browser Web Speech API; microphone echo-read uses the browser speech-recognition service, which may send audio to the server — do not enable it if you mind.",
     "lm.excerpt": "(Long-text mode: full text of {n} chars loaded; click \"Exit long-text mode\" below to edit again)",
     "lm.max": "Up to 2,000,000 characters per load; only the first 2,000,000 were loaded.",
@@ -3688,8 +3692,8 @@ function applyI18n() {
   var rdRateSel = $("rd-rate"), rdVoiceSel = $("rd-voice");
   var rdRange = $("rd-progress"), rdProgText = $("rd-progress-text");
   var rdMicBtn = $("rd-mic"), rdMicLabel = $("rd-mic-label"), rdToast = $("rd-toast");
-  var rdSentences = [], rdKnownText = "", rdIndex = 0, rdChar = -1;
-  var rdPlaying = false, rdPaused = false, rdToken = 0, rdSegs = [], rdSegI = 0;
+  var rdSentences = [], rdKnownText = "", rdKnownFp = "", rdIndex = 0, rdChar = -1;
+  var rdPlaying = false, rdPaused = false, rdToken = 0, rdSegs = [];
   var rdRate = 1, rdVoice = null, rdVoices = [];
   var rdPageRanges = [];
   var rdItemCache = null, rdCurEls = [], rdCurCharEl = null, rdLastHiIndex = -1;
@@ -3698,6 +3702,12 @@ function applyI18n() {
 
   function rdSourceText() {
     return LM ? LM.text : input.value.replace(/\r\n?/g, "\n");
+  }
+  function rdTextFp(text) {
+    // 文本指纹：长度 + 全文抽样哈希，用于判断「上次读到的位置」是否还是这篇课文
+    var n = text.length, h = 5381, i, step = Math.max(1, Math.floor(n / 96));
+    for (i = 0; i < n; i += step) h = ((h * 33) ^ text.charCodeAt(i)) & 0x7fffffff;
+    return n + ":" + h;
   }
   function rdLoadPrefs() {
     try {
@@ -3712,6 +3722,7 @@ function applyI18n() {
       var cur = rdSentences[rdIndex];
       localStorage.setItem(RD_KEY, JSON.stringify({
         off: rdChar >= 0 ? rdChar : (cur ? cur.start : 0),
+        fp: rdKnownFp,
         rate: rdRate,
         voice: rdVoice ? rdVoice.name : "",
         at: Date.now()
@@ -3768,6 +3779,7 @@ function applyI18n() {
     var src = rdSourceText();
     if (!force && src === rdKnownText && rdSentences.length) return false;
     rdKnownText = src;
+    rdKnownFp = rdTextFp(src);
     rdSentences = rdSplitSentences(src);
     if (rdIndex >= rdSentences.length) rdIndex = Math.max(0, rdSentences.length - 1);
     rdChar = -1;
@@ -3971,11 +3983,11 @@ function applyI18n() {
     if (autoPick >= 0) { rdVoiceSel.value = String(autoPick); rdVoice = rdVoices[autoPick]; }
     else { rdVoiceSel.value = ""; rdVoice = null; }
   }
-  function rdStop(keepPos) {
+  function rdStop() {
     rdToken++;
     rdPlaying = false;
     rdPaused = false;
-    rdSegs = []; rdSegI = 0;
+    rdSegs = [];
     try { if (rdTtsAvailable()) window.speechSynthesis.cancel(); } catch (e) {}
     rdUpdateUI();
   }
@@ -4003,7 +4015,7 @@ function applyI18n() {
     }
     rdIndex = si;
     rdChar = cur.start;
-    rdSegs = segs; rdSegI = 0;
+    rdSegs = segs;
     rdGoToPageForChar(rdChar);
     rdApplyHighlight();
     rdUpdateUI();
@@ -4012,7 +4024,6 @@ function applyI18n() {
   function rdSpeakSeg(k) {
     if (!rdPlaying || k >= rdSegs.length) { if (rdPlaying) rdSpeakSentence(rdIndex + 1); return; }
     var tok = ++rdToken;
-    rdSegI = k;
     var seg = rdSegs[k];
     var text = rdSourceText().slice(seg.start, seg.end);
     if (!text.trim()) { rdSpeakSeg(k + 1); return; }
@@ -4088,7 +4099,8 @@ function applyI18n() {
     rdChar = -1;
   }
   function rdEnter() {
-    rdEnsureSentences(true);
+    // 按需重切：文本没变就不重复切句（长文全量切句很重）；变了才重建
+    rdEnsureSentences(false);
     if (rdTtsAvailable()) rdRefreshVoices();
     var saved = rdLoadPrefs();
     if (saved) {
@@ -4096,7 +4108,8 @@ function applyI18n() {
       if (rdRateSel) rdRateSel.value = String(rdRate);
     }
     var resumed = false;
-    if (saved && typeof saved.off === "number" && rdSentences.length) {
+    // 指纹对得上才续读，换了课文就从头开始，避免「上次位置」串到别的文章里
+    if (saved && saved.fp === rdKnownFp && typeof saved.off === "number" && rdSentences.length) {
       var si = rdSentenceIndexForChar(saved.off);
       rdIndex = si;
       var cur = rdSentences[si];
@@ -4133,6 +4146,13 @@ function applyI18n() {
   // —— 麦克风跟读（实验）：把识别到的最后几个字模糊对齐到当前位置之后的原文 ——
   function rdMicAvailable() {
     return !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+  }
+  function rdMicConfirmOnce() {
+    // 首次开启前如实告知「音频会交给浏览器语音识别服务」，确认一次后不再询问
+    try { if (localStorage.getItem("py-read-mic-ok") === "1") return true; } catch (e) {}
+    var ok = window.confirm(i18nT("rd.micConfirm", "麦克风跟读由浏览器内置的语音识别服务处理，音频可能会发送到浏览器或系统厂商的服务器（本工具仍然不会收到您的文章内容）。确定开启吗？"));
+    if (ok) { try { localStorage.setItem("py-read-mic-ok", "1"); } catch (e) {} }
+    return ok;
   }
   function rdIsHanOrWord(c) {
     return /[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFFA-Za-z0-9]/.test(c);
@@ -4173,6 +4193,7 @@ function applyI18n() {
   function rdToggleMic() {
     if (rdMicOn) { rdStopMic(); return; }
     if (!rdMicAvailable()) { rdToastMsg(i18nT("rd.micUnsupported", "当前浏览器不支持麦克风跟读（建议 Chrome / Edge）。")); return; }
+    if (!rdMicConfirmOnce()) { rdToastMsg(i18nT("rd.micCancelled", "已取消开启麦克风跟读。")); return; }
     if (rdTtsAvailable()) rdStop(true);
     var Ctor = window.SpeechRecognition || window.webkitSpeechRecognition;
     try { rdRecog = new Ctor(); } catch (e) { rdRecog = null; rdToastMsg(i18nT("rd.micError", "跟读识别出错，请重试。")); return; }
