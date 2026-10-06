@@ -151,6 +151,26 @@ node build.js
 ### 贡献者
 
 <!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/tjsky">
+                    <img src="https://avatars.githubusercontent.com/u/7272911?v=4" width="100;" alt="tjsky"/>
+                    <br />
+                    <sub><b>去年夏天</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/wang90">
+                    <img src="https://avatars.githubusercontent.com/u/18193621?v=4" width="100;" alt="wang90"/>
+                    <br />
+                    <sub><b>wang90</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
 <!-- readme: contributors -end -->
 
 
