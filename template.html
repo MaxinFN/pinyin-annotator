@@ -1381,6 +1381,15 @@ function applyI18n() {
     "吗": "ma", "呀": "ya", "啦": "la", "哇": "wa", "哪": "na"
   };
 
+  // 引擎多音字数据缺口的补充表（pinyin-pro 单字只收「现代规范读音」，以下读音因此缺席）：
+  //  - 骑 jì：《现代汉语词典》第 7 版注为「旧读」，用于骑兵 / 骑马的人（一骑红尘），古诗文教学仍按 jì 读；
+  //  - 偕 jiē：教育部《異體字字典》列为又读，用于人名（马偕）与台湾姓氏。
+  // 只影响「点击改读音」的候选与易错点高亮，不改变引擎默认读音；需要时点击对应字选用。
+  var POLY_EXTRA = {
+    "骑": ["jì"],
+    "偕": ["jiē"]
+  };
+
   var input = $("input"), preview = $("preview"), count = $("count");
   var popover = $("popover"), popChar = $("pop-char"), popOpts = $("pop-opts");
   var pageNav = $("page-nav"), pgLabel = $("pg-label"), limitTip = $("limit-tip");
@@ -1403,7 +1412,7 @@ function applyI18n() {
   // parText+j 为段落内位置，absJ 为全文绝对下标（erhuaOverrides / poly 按绝对下标索引）
   function hotChar(parText, j, absJ, poly) {
     var c = parText[j];
-    var hot = c === "一" || c === "不" || c === "的" || c === "地" || c === "得" || !!PARTICLE[c];
+    var hot = c === "一" || c === "不" || c === "的" || c === "地" || c === "得" || !!PARTICLE[c] || !!POLY_EXTRA[c];
     if (!hot && c === "儿" && j > 0 && HAN_RE.test(parText[j - 1]) && (isErhuaSuffix(parText, j) || erhuaOverrides[absJ])) hot = true;
     if (!hot && poly && poly[absJ]) {
       try { if (String(poly[absJ]).split(/\s+/).filter(Boolean).length > 1) hot = true; } catch (eHot) { /* 忽略 */ }
@@ -2419,6 +2428,11 @@ function applyI18n() {
       var poly = lib.polyphonic(text);
       if (poly && poly[idx]) alts = poly[idx].split(/\s+/).filter(Boolean);
     } catch (e) { alts = []; }
+    // 引擎缺收的读音（骑 jì / 偕 jiē 等）由项目补充表补齐候选
+    var extra = POLY_EXTRA[hanChar];
+    if (extra) {
+      extra.forEach(function (r) { if (alts.indexOf(r) === -1) alts.push(r); });
+    }
     if (reading && alts.indexOf(reading) === -1) alts.unshift(reading);
     // 「一 / 不」：引擎多音字数据只登记原调（yī / bù），补全变调候选供手动指定
     if (hanChar === "一") {
