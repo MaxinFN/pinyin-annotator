@@ -1,6 +1,6 @@
 // 构建脚本：生成「台湾读音差异表」（tw-diff）
 // 数据源：g0v/moedict-data《重編國語辭典修訂本》dict-revised.json（词典文本 CC BY-ND 3.0 臺灣 教育部；JSON 格式化 CC0 @kcwu）
-// 普通话读音：与运行时引擎完全一致的 pinyin-pro 3.29.4（从 main.html 提取的 UMD 引擎 .pyp/engine-3.29.4.js）
+// 普通话读音：与运行时引擎完全一致的 pinyin-pro 3.29.5（UMD 引擎 vendor/engine-3.29.5.js，单一来源）
 // 繁→简：opencc-js（tw→cn，构建期转换表键）
 // 输出：
 //   seg-dict/twdiff.b64.txt       gzip+base64 的 TSV（运行时嵌入）
@@ -18,7 +18,7 @@ const ROOT = path.join(__dirname, "..");
 const NODE_PATHS = "C:/Users/5809/.workbuddy/binaries/node/workspace/node_modules";
 
 // ---- 载入与运行时一致的 pinyin-pro 引擎 ----
-const engineCode = fs.readFileSync(path.join(__dirname, "engine-3.29.4.js"), "utf8");
+const engineCode = fs.readFileSync(path.join(__dirname, "..", "vendor", "engine-3.29.5.js"), "utf8");
 const mod = { exports: {} };
 new Function("exports", "module", "window", engineCode)(mod.exports, mod, globalThis);
 const pinyin = mod.exports.pinyin;

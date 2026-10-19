@@ -7,7 +7,7 @@
 // 注入点（template.html 中的占位注释）：
 //  - /*__ANDIKA_FACE__*/  内置 Andika 拼音字体 @font-face（woff2 base64，fonts/andika-face.css.txt）
 //  - /*__BPMF_FACE__*/    内置注音符号字体 @font-face（Noto Sans TC 子集，woff2 base64）
-//  - /*__PINYIN_PRO__*/   pinyin-pro 引擎完整代码（内嵌，离线可用，vendor/engine-3.29.4.js）
+//  - /*__PINYIN_PRO__*/   pinyin-pro 引擎完整代码（内嵌，离线可用，vendor/engine-3.29.5.js）
 //  - /*__PY2ZY__*/        拼音→注音 转换算法（vendor/py2zy.snippet.js）
 //  - /*__SEG_DICT__*/null 分词词典 base64（pinyin/plus/zhuyin 注入对应词典，mini 保持 null）
 //  - /*__TW_DIFF__*/null  台湾读音差异表 base64（萌典数据 diff 产物，含简繁双键，全版本注入）
@@ -15,7 +15,7 @@
 //  - /*__VARIANT__*/null  构建变体默认值 JSON（zhuyin: 繁体界面/注音/台湾读音/opencc）
 // 构建版本号：手工维护，发版时随 tag 递增；注入为每个产物 head 内的隐藏注释 <!--build:x.y.z>，
 // 用于部署验证——curl 任一线上页面 grep 该串即可确认平台是否在服务最新 dist（固定常量保证产物逐字节可复现）。
-const BUILD_VERSION = "v1.1.0";
+const BUILD_VERSION = "v1.1.1";
 //  - <!--__SEO_META__-->  各版本 SEO meta（canonical / og 标签，按版本注入）
 const fs = require("fs");
 const path = require("path");
@@ -26,8 +26,8 @@ const template = fs.readFileSync(path.join(root, "template.html"), "utf8");
 // 1) Andika @font-face 块（:root 之前，已资产化）
 const andikaBlock = fs.readFileSync(path.join(root, "fonts", "andika-face.css.txt"), "utf8");
 
-// 2) pinyin-pro 引擎代码（与运行时一致的 3.29.4 UMD）
-const engineCode = fs.readFileSync(path.join(root, "vendor", "engine-3.29.4.js"), "utf8").trim();
+// 2) pinyin-pro 引擎代码（与运行时一致的 3.29.5 UMD）
+const engineCode = fs.readFileSync(path.join(root, "vendor", "engine-3.29.5.js"), "utf8").trim();
 
 // 3) 分词词典 base64
 const zlib = require("zlib");
