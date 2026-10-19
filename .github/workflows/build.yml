@@ -35,6 +35,7 @@ jobs:
           mkdir -p dist
           cp index.html main.html zhuyin.css dist/
           cp mini.html pinyin.html plus.html zhuyin.html dist/
+          cp .github/dist-readme.md dist/README.md
           touch dist/.nojekyll
 
       - name: Push dist branch (force, machine-managed)
