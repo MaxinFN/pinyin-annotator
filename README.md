@@ -6,9 +6,7 @@
 >
 > 开源仓库：<https://github.com/tjsky/pinyin-annotator> · 作者博客：[秋风于渭水](https://www.tjsky.net)
 
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-
-![Engine](https://img.shields.io/badge/%E6%8B%BC%E9%9F%B3%E5%BC%95%E6%93%8E-pinyin--pro-orange)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) [![拼音引擎](https://img.shields.io/badge/%E6%8B%BC%E9%9F%B3%E5%BC%95%E6%93%8E-pinyin--pro-orange)](https://github.com/zh-lx/pinyin-pro) [![繁简转换](https://img.shields.io/badge/%E7%B9%81%E7%AE%80%E8%BD%AC%E6%8D%A2-OpenCC-blue)](https://github.com/nk2028/opencc-js) [![台湾读音](https://img.shields.io/badge/%E5%8F%B0%E6%B9%BE%E8%AF%BB%E9%9F%B3-%E8%90%8C%E5%85%B8-green)](https://github.com/g0v/moedict-data) [![注音 IVS](https://img.shields.io/badge/%E6%B3%A8%E9%9F%B3%20IVS-bpmfvs-blueviolet)](https://github.com/ButTaiwan/bpmfvs)
 
 **在线使用：**[拼音注音小助手(Github Page)](https://tjsky.github.io/pinyin-annotator/) |[拼音注音小助手(Cloudflare Page)](https://pinyin-annotator.tjsky.net/)
 
@@ -233,27 +231,19 @@ node build.js
 
 ## 开发计划&待修复问题
 
-### TODO
+### 计划中
 
-- [x] 拆分版本：mini / pinyin（原 main）/ plus / zhuyin 四版 + 入口页
-- [x] 简体/繁体/英文界面切换（i18n 内核 + 三语包）
-- [x] 拼音/注音双模式（音节级映射转换；注音支持横排 / 直排，拼音支持上方 / 右侧）
-- [x] 台湾读音差异表（萌典数据构建期 diff，拼音与注音模式均生效）
-- [x] 简繁转换（OpenCC，注音版 / 完整词典版内置；支持标准 / 台湾 / 香港繁体与常用词汇转换）
-- [x] 五种复制格式（含 HTML+CSS 注音、注音芫荽 IVS 模式）
-- [x] 网络字体（霞鹜文楷 GB / TC、芫荽 Iansui，按需加载自动缓存）
-- [x] 长文模式：超过 3 万字自动分块排版（上限 200 万字），支持整本书籍；打印支持页码范围 / 分批全书 + PDF 合并
-- [ ] 更多的注音与拼音方案：如華語羅馬拼音 (THL)、通用拼音、注音二式、威妥瑪拼音。
-- [ ] 粤语拼音（粤拼）支持：粤音标音标准较混乱，不保证效果，目前暂未找到权威标准文件（如政府标准、学校教材）与可用开源库，欢迎提供参考资料。
+- 更多的注音与拼音方案：如華語羅馬拼音 (THL)、通用拼音、注音二式、威妥瑪拼音。
+- 粤语拼音（粤拼）支持：粤音标音标准较混乱，不保证效果，目前暂未找到权威标准文件（如政府标准、学校教材）与可用开源库，欢迎提供参考资料。
 
 ## 已知问题
-- [x] 预览与打印BUG：文章本身如果没有换行，只有超级长的一行时，翻页模式下，PDF和预览从第二页开始，排版会出错。
-- [x] 繁简转换时常用词汇未正确转换：如鼠标→滑鼠、软件→軟體、打印→列印。
-- [ ] 分词字典导致错误读音：有时候先分词再标读音反而会导致错误的读音。说人话就是：个别字的读音，可能mini版比plus版更准（但绝大部分时候plus版对多音字的判断更准），涉及拼音引擎本身能力的问题。
-- [ ] 阅读模式朗读：句子正好跨在两页的分界上时，翻页的地方朗读会顿一下再继续，这个属于性能和功能的取舍，近期不打算解决。
-- [ ] 朗读不按标注读音：朗读功能依靠你手机/电脑/浏览器内置的语音引擎，多音字读法完全由它自己决定，他不会按照咱们标注的读音读，目前没有发现兼顾低成本和高体验的解决方案。
-- [ ] 阅读模式麦克风跟读：靠识别出的字对齐进度，遇到两三个字的常用短语偶尔会定位错句。
-- [ ] 阅读模式朗读高亮：按字符位置定位，文章里如果有 emoji 符号，高亮可能会出现定位问题（正经文章里没emoji吧）。
+
+- 读音错误 / 缺音：注音由内置的拼音引擎自动判断，个别字可能读错或读音不全。我针对常见问题做过补充，但没法覆盖全部情况。遇到错音可以直接点那个字手动改；如果点了发现候选里也没有正确读音，欢迎反馈给我，我补上。
+- 阅读模式：
+  - 朗读读音由手机 / 电脑 / 浏览器内置的语音引擎决定，多音字读法可能和标注不一致，目前没找到兼顾低成本与体验的解法；
+  - 句子正好跨在两页的分界上时，翻页的地方朗读会顿一下再继续，属于性能与功能的取舍，近期不打算解决；
+  - 麦克风跟读靠识别出的字对齐进度，遇到两三个字的常用短语偶尔会定位错句；
+  - 朗读高亮按字符位置定位，文章里如果有 emoji 符号，高亮可能会出现偏移。
 
 ## Star History
 
