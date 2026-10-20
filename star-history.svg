@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title description">
   <title id="title">MaxinFN/pinyin-annotator Star History</title>
-  <desc id="description">GitHub stars by date, last updated 2026-10-19</desc>
+  <desc id="description">GitHub stars by date, last updated 2026-10-20</desc>
   <style>
     .background { fill: #ffffff; }
     .grid { fill: none; stroke: #d8dee4; stroke-width: 1; }
@@ -24,11 +24,11 @@
   </style>
   <rect class="background" width="960" height="520" rx="8"/>
   <text class="heading" x="76" y="38">MaxinFN/pinyin-annotator Star History</text>
-  <text class="subtitle" x="76" y="62">GitHub stars by date · updated 2026-10-19</text>
+  <text class="subtitle" x="76" y="62">GitHub stars by date · updated 2026-10-20</text>
   <text class="value" x="928" y="40" text-anchor="end">★ 0</text>
   <path class="grid" d="M 76 456.0 H 928"/><text class="label" x="64" y="460.0" text-anchor="end">0</text><path class="grid" d="M 76 383.2 H 928"/><text class="label" x="64" y="387.2" text-anchor="end">0.2</text><path class="grid" d="M 76 310.4 H 928"/><text class="label" x="64" y="314.4" text-anchor="end">0.4</text><path class="grid" d="M 76 237.6 H 928"/><text class="label" x="64" y="241.6" text-anchor="end">0.6</text><path class="grid" d="M 76 164.8 H 928"/><text class="label" x="64" y="168.8" text-anchor="end">0.8</text><path class="grid" d="M 76 92.0 H 928"/><text class="label" x="64" y="96.0" text-anchor="end">1</text>
-  <path class="grid" d="M 76.0 92 V 456"/><text class="label" x="76.0" y="484" text-anchor="start">Oct 9, 2026</text><path class="grid" d="M 289.0 92 V 456"/><text class="label" x="289.0" y="484" text-anchor="middle">Oct 11, 2026</text><path class="grid" d="M 502.0 92 V 456"/><text class="label" x="502.0" y="484" text-anchor="middle">Oct 14, 2026</text><path class="grid" d="M 715.0 92 V 456"/><text class="label" x="715.0" y="484" text-anchor="middle">Oct 16, 2026</text><path class="grid" d="M 928.0 92 V 456"/><text class="label" x="928.0" y="484" text-anchor="end">Oct 19, 2026</text>
-  <path class="area" d="M 76.0 456.0 C 104.4 456.0, 132.8 456.0, 161.2 456.0 C 189.6 456.0, 218.0 456.0, 246.4 456.0 C 274.8 456.0, 303.2 456.0, 331.6 456.0 C 360.0 456.0, 388.4 456.0, 416.8 456.0 C 445.2 456.0, 473.6 456.0, 502.0 456.0 C 530.4 456.0, 558.8 456.0, 587.2 456.0 C 615.6 456.0, 644.0 456.0, 672.4 456.0 C 700.8 456.0, 729.2 456.0, 757.6 456.0 C 786.0 456.0, 814.4 456.0, 842.8 456.0 C 871.2 456.0, 899.6 456.0, 928.0 456.0 V 456 H 76.0 Z"/>
-  <path class="line" d="M 76.0 456.0 C 104.4 456.0, 132.8 456.0, 161.2 456.0 C 189.6 456.0, 218.0 456.0, 246.4 456.0 C 274.8 456.0, 303.2 456.0, 331.6 456.0 C 360.0 456.0, 388.4 456.0, 416.8 456.0 C 445.2 456.0, 473.6 456.0, 502.0 456.0 C 530.4 456.0, 558.8 456.0, 587.2 456.0 C 615.6 456.0, 644.0 456.0, 672.4 456.0 C 700.8 456.0, 729.2 456.0, 757.6 456.0 C 786.0 456.0, 814.4 456.0, 842.8 456.0 C 871.2 456.0, 899.6 456.0, 928.0 456.0"/>
+  <path class="grid" d="M 76.0 92 V 456"/><text class="label" x="76.0" y="484" text-anchor="start">Oct 9, 2026</text><path class="grid" d="M 289.0 92 V 456"/><text class="label" x="289.0" y="484" text-anchor="middle">Oct 11, 2026</text><path class="grid" d="M 502.0 92 V 456"/><text class="label" x="502.0" y="484" text-anchor="middle">Oct 14, 2026</text><path class="grid" d="M 715.0 92 V 456"/><text class="label" x="715.0" y="484" text-anchor="middle">Oct 17, 2026</text><path class="grid" d="M 928.0 92 V 456"/><text class="label" x="928.0" y="484" text-anchor="end">Oct 20, 2026</text>
+  <path class="area" d="M 76.0 456.0 C 101.8 456.0, 127.6 456.0, 153.5 456.0 C 179.3 456.0, 205.1 456.0, 230.9 456.0 C 256.7 456.0, 282.5 456.0, 308.4 456.0 C 334.2 456.0, 360.0 456.0, 385.8 456.0 C 411.6 456.0, 437.5 456.0, 463.3 456.0 C 489.1 456.0, 514.9 456.0, 540.7 456.0 C 566.5 456.0, 592.4 456.0, 618.2 456.0 C 644.0 456.0, 669.8 456.0, 695.6 456.0 C 721.5 456.0, 747.3 456.0, 773.1 456.0 C 798.9 456.0, 824.7 456.0, 850.5 456.0 C 876.4 456.0, 902.2 456.0, 928.0 456.0 V 456 H 76.0 Z"/>
+  <path class="line" d="M 76.0 456.0 C 101.8 456.0, 127.6 456.0, 153.5 456.0 C 179.3 456.0, 205.1 456.0, 230.9 456.0 C 256.7 456.0, 282.5 456.0, 308.4 456.0 C 334.2 456.0, 360.0 456.0, 385.8 456.0 C 411.6 456.0, 437.5 456.0, 463.3 456.0 C 489.1 456.0, 514.9 456.0, 540.7 456.0 C 566.5 456.0, 592.4 456.0, 618.2 456.0 C 644.0 456.0, 669.8 456.0, 695.6 456.0 C 721.5 456.0, 747.3 456.0, 773.1 456.0 C 798.9 456.0, 824.7 456.0, 850.5 456.0 C 876.4 456.0, 902.2 456.0, 928.0 456.0"/>
   <circle class="point" cx="928.0" cy="456.0" r="5"/>
 </svg>
