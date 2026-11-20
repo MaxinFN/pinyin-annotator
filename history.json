@@ -1,6 +1,6 @@
 {
   "repository": "MaxinFN/pinyin-annotator",
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "points": [
     {
       "date": "2026-10-09",
@@ -168,6 +168,10 @@
     },
     {
       "date": "2026-11-19",
+      "stars": 0
+    },
+    {
+      "date": "2026-11-20",
       "stars": 0
     }
   ]
